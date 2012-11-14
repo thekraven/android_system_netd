@@ -33,8 +33,8 @@ class SoftapController {
     pid_t mPid;
     int mSock;
 
+    int getPrivFuncNum(char *iface, const char *fname);
     int addParam(int pos, const char *cmd, const char *arg);
-    int setCommand(char *iface, const char *fname, unsigned buflen=0);
 public:
     SoftapController();
     virtual ~SoftapController();
@@ -45,9 +45,7 @@ public:
     int stopSoftap();
     bool isSoftapStarted();
     int setSoftap(int argc, char *argv[]);
-    void generatePsk(char *ssid, char *passphrase, char *psk);
     int fwReloadSoftap(int argc, char *argv[]);
-    int clientsSoftap(char **retbuf);
 };
 
 #endif

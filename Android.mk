@@ -32,6 +32,13 @@ LOCAL_C_INCLUDES := $(KERNEL_HEADERS) \
                     $(call include-path-for, libhardware_legacy)/hardware_legacy
 
 LOCAL_CFLAGS :=
+ifdef WIFI_DRIVER_FW_PATH_STA
+LOCAL_CFLAGS += -DWIFI_DRIVER_FW_PATH_STA=\"$(WIFI_DRIVER_FW_PATH_STA)\"
+endif
+ifdef WIFI_DRIVER_FW_PATH_AP
+LOCAL_CFLAGS += -DWIFI_DRIVER_FW_PATH_AP=\"$(WIFI_DRIVER_FW_PATH_AP)\"
+endif
+
 
 LOCAL_SHARED_LIBRARIES := libstlport libsysutils libcutils libnetutils \
                           libcrypto libhardware_legacy
